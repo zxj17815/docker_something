@@ -4,7 +4,12 @@
 
 #### python3.6-django文件夹
 以python:3.6-alpine为基础  
-安装了Django + DRF + MySql关联  
+安装了Django + DRF + uWSGI + MySql连接   
+  
+Docker pull:
+```
+docker push zxj17815/alpine-django2.2:tagname
+```
 已经安装的pip库：  
 ```
 aliyun-python-sdk-core        2.13.13
@@ -43,4 +48,9 @@ urllib3                       1.25.7
 uWSGI                         2.0.18
 wheel                         0.33.6
 ```
-**其中pycryptodome比较特殊，在windows下使用；在Linux下可能需要替换为crypto**
+*其中pycryptodome比较特殊，由于创建镜像时在windows下使用；在Linux下可能需要替换为crypto*  
+   
+**tips：运行时请暴露端口和共享本地项目文件夹如下：**
+```shell
+docker run --name django2.2 -i -t -p 8899:8899 -v D:/work:/data zxj17815/alpine-django2.2:v2
+```
