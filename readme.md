@@ -1,10 +1,24 @@
 ### Docker images dockerfile
 #### Ubuntu-python-django文件夹
-以ubuntu镜像为基础，修改了apt源为清华源，安装了python3.6、pip3（v19）、django2.2及MySQL-clinet相关配置
+以ubuntu镜像为基础，修改了apt源为清华源，安装了python3.6、pip3（v19）、django2.2及MySQL-clinet相关配置  
+version=1.1 改为PyMySQL进行连接，但是因为django2.2版本不支持<1.3.13的mysqlclient库，所以兼容设置，修改django的init文件：  
+```python
+# django 项目管理文件夹的__init__.py
+import pymysql 
+pymysql.version_info = (1, 3, 13, "final", 0) 
+pymysql.install_as_MySQLdb()
+```   
 
 #### python3.6-django文件夹
 以python:3.6-alpine为基础  
-安装了Django + DRF + uWSGI + MySql连接   
+安装了Django + DRF + uWSGI + MySql连接  
+version=1.1 改为PyMySQL进行连接，但是因为django2.2版本不支持<1.3.13的mysqlclient库，所以兼容设置，修改django的init文件：  
+```python
+# django 项目管理文件夹的__init__.py
+import pymysql 
+pymysql.version_info = (1, 3, 13, "final", 0) 
+pymysql.install_as_MySQLdb()
+```     
   
 Docker pull:
 ```
@@ -12,14 +26,10 @@ docker push zxj17815/alpine-django2.2:tagname
 ```
 已经安装的pip库：  
 ```
-aliyun-python-sdk-core        2.13.13
-aliyun-python-sdk-core-v3     2.13.11
-aliyun-python-sdk-kms         2.8.0
 certifi                       2019.11.28
 chardet                       3.0.4
 coreapi                       2.3.3
 coreschema                    0.0.4
-crcmod                        1.7
 defusedxml                    0.6.0
 Django                        2.2
 django-crontab                0.7.1
@@ -31,14 +41,11 @@ drf-writable-nested           0.5.4
 idna                          2.8
 itypes                        1.1.0
 Jinja2                        2.10.3
-jmespath                      0.9.4
 Markdown                      3.1.1
 MarkupSafe                    1.1.1
-mysqlclient                   1.4.6
-oss2                          2.9.1
 pip                           19.3.1
-pycryptodome                  3.9.4
 PyJWT                         1.7.1
+PyMySQL                       0.9.3
 pytz                          2019.3
 requests                      2.22.0
 setuptools                    42.0.2
@@ -54,3 +61,5 @@ wheel                         0.33.6
 ```shell
 docker run --name django2.2 -i -t -p 8899:8899 -v D:/work:/data zxj17815/alpine-django2.2:v2
 ```
+#### nginx
+文件夹内为使用docker的nginx配置文件

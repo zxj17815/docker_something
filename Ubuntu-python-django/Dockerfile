@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER iceiceice <hades922@outlook.com>
-LABEL version="1.0"
-LABEL description="This is an image of Ubuntu(deb=mirrors.tuna.tsinghua.edu.cn) + Django + DRF + MySql"
+LABEL version="1.1"
+LABEL description="This is an image of Ubuntu(deb=mirrors.tuna.tsinghua.edu.cn) + Django (DRF,MySql(pymysql))"
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
 RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse" >>/etc/apt/sources.list
 RUN echo "deb http://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse" >>/etc/apt/sources.list
@@ -19,8 +19,7 @@ RUN pip3 install django-crontab
 RUN pip3 install djangorestframework
 RUN pip3 install markdown
 RUN pip3 install django-filter
-RUN apt-get install libmysqlclient-dev python3-dev mysql-client libssl-dev -y
-RUN pip3 install mysqlclient
+RUN pip3 install pymysql
 RUN pip3 install djangorestframework_simplejwt
 RUN pip3 install requests
 RUN pip3 install djangorestframework-xml
