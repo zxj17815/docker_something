@@ -63,3 +63,10 @@ docker run --name django2.2 -i -t -p 8899:8899 -v D:/work:/data zxj17815/alpine-
 ```
 #### nginx
 文件夹内为使用docker的nginx配置文件
+
+#### Mysql
+Mysql5.7的docker镜像和简单的mysalAdmin管理站点，Docker Compose 编写  
+在文件同级目录内使用Compose直接启动
+```shell
+docker-compose up
+```
