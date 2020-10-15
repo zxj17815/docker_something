@@ -1,0 +1,29 @@
+# redis server and Web Gui
+version: '3.1'
+
+services:
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    command: redis-server --requirepass redis123!
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - D:/soft/Redis/docker
+
+  adminer:
+    image: erikdubbelboer/phpredisadmin:latest
+    container_name: redis_adminer
+    restart: always
+    links:
+      - redis
+    ports:
+      - 8089:80
+    environment:
+      ADMIN_USER: admin
+      ADMIN_PASS: redis123!
+      REDIS_1_HOST: redis
+      REDIS_1_PORT: 6379
+      REDIS_1_AUTH: redis123!

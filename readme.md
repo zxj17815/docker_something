@@ -70,3 +70,10 @@ Mysql5.7的docker镜像和简单的mysalAdmin管理站点，Docker Compose 编�
 ```shell
 docker-compose up
 ```
+
+#### Redis
+Redis的docker镜像和简单的redisAdmin管理站点，Docker Compose 编写  
+在文件同级目录内使用Compose直接启动
+```shell
+docker-compose up
+```
