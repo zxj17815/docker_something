@@ -6,12 +6,12 @@ services:
   redis:
     image: redis:latest
     container_name: redis
-    command: redis-server --requirepass redis123!
+    command: redis-server --requirepass redis123! --appendonly yes
     restart: always
     ports:
       - "6379:6379"
     volumes:
-      - D:/soft/Redis/docker
+      - /data/docker_data/redis:/data
 
   adminer:
     image: erikdubbelboer/phpredisadmin:latest

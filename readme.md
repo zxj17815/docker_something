@@ -70,6 +70,7 @@ Mysql5.7的docker镜像和简单的mysalAdmin管理站点，Docker Compose 编�
 ```shell
 docker-compose up
 ```
+在windows环境里和Linux环境里的Mysql会有大小写区分的问题，在command里加上`--lower-case-table-names=0`是严格区分数据库名称大小写，但是在win系统里文件名是不区分大小写的，会导致无法启动mysql，容器启动失败
 
 #### Redis
 Redis的docker镜像和简单的redisAdmin管理站点，Docker Compose 编写  
