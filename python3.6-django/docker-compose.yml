@@ -1,0 +1,9 @@
+# redis server and Web Gui
+version: '3.1'
+
+services:
+
+  redis:
+    image: django2.2:v3
+    container_name: django_test
+    restart: always
