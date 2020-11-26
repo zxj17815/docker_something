@@ -78,3 +78,10 @@ Redis的docker镜像和简单的redisAdmin管理站点，Docker Compose 编写
 ```shell
 docker-compose up
 ```
+
+#### RabbitMQ
+RabbitMQ的docker镜像包含了management管理页面Web GUI,默认用户`guest`密码`guest`，Docker Compose 编写  
+在文件同级目录内使用Compose直接启动
+```shell
+docker-compose up
+```
