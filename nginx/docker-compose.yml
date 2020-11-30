@@ -3,7 +3,11 @@ version: '3.1'
 services:
   nginx-ui:
     image: schenkd/nginx-ui:latest
+    restart: always
     ports:
       - 8087:8080
     volumes:
-      - nginx:/etc/nginx
+      - etc/nginx:/etc/nginx
+
+volumes:
+  nginx:
