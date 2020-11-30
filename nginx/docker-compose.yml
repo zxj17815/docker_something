@@ -5,9 +5,9 @@ services:
     image: schenkd/nginx-ui:latest
     restart: always
     ports:
-      - 8087:8080
+      - 127.0.0.1:8087:8080
     volumes:
-      - etc/nginx:/etc/nginx
+      - /etc/nginx:/etc/nginx
 
 volumes:
-  nginx:
+  nginx_data:
