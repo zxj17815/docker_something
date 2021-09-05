@@ -9,7 +9,7 @@ services:
     environment:
       POSTGRES_PASSWORD: root
     volumes:
-      - /data/docker_data/pgsql:/var/lib/postgresql/data 
+      - ~/DockerData/pgsql:/var/lib/postgresql/data 
     ports:
       - 5432:5432
 
