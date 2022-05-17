@@ -5,8 +5,10 @@ services:
 
   mongo:
     image: mongo
+    ports:
+      - "27017:27017"
     volumes: 
-      - /data/docker_data/mongodb:/data/db
+      - /Users/jay/DockerData/mongodb:/data/db
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
@@ -14,10 +16,12 @@ services:
 
   mongo-express:
     image: mongo-express
+    depends_on:
+      - mongo
     restart: always
     ports:
-      - 8075:8075
+      - 8075:8081
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: root
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+      ME_CONFIG_MONGODB_URL: mongodb://root:root@mongo:27017/
